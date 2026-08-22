@@ -1,0 +1,258 @@
+.contact {
+  width: 100%;
+  scroll-margin-top: 6.25rem;
+  overflow-x: clip;
+  padding: 6.25rem 3.125rem 10rem;
+  background: #0f0f10;
+  color: #f4f3ef;
+}
+
+.inner {
+  display: flex;
+  width: 100%;
+  max-width: 68.75rem;
+  margin: 0 auto;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.details {
+  display: grid;
+  grid-template-columns: minmax(0, 29rem) minmax(0, 37.5rem);
+  align-items: start;
+  justify-content: space-between;
+  gap: 2.5rem;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2.5rem;
+}
+
+.intro {
+  max-width: 29rem;
+  margin: 0;
+  color: rgba(244, 243, 239, 0.5);
+  font-family: var(--font-display), Impact, sans-serif;
+  font-size: 1.5rem;
+  line-height: 1.48;
+  text-transform: uppercase;
+}
+
+.contactDetail h3 {
+  margin: 0 0 0.75rem;
+  font-family: var(--font-display), Impact, sans-serif;
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.contactDetail p,
+.contactDetail a {
+  margin: 0;
+  color: rgba(244, 243, 239, 0.5);
+  font-family: var(--font-inter), Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  text-decoration: none;
+}
+
+.contactDetail a {
+  display: inline-flex;
+  min-height: 2.75rem;
+  align-items: center;
+  transition: color 200ms ease;
+}
+
+.contactDetail a:hover,
+.contactDetail a:focus-visible {
+  color: #32d74b;
+  border-radius: 0;
+  outline: 2px solid #32d74b;
+  outline-offset: 0.2rem;
+}
+
+.socials {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.socials a {
+  display: inline-flex;
+  width: 2.75rem;
+  min-height: 2.75rem;
+  align-items: center;
+  justify-content: center;
+  color: #f4f3ef;
+  transition:
+    color 200ms ease,
+    transform 200ms ease;
+}
+
+.socials svg {
+  width: 1.85rem;
+  height: 1.85rem;
+  stroke-width: 1.8;
+}
+
+.socials span {
+  font-family: var(--font-display), Impact, sans-serif;
+  font-size: 1.85rem;
+  line-height: 1;
+}
+
+.socials a:hover,
+.socials a:focus-visible {
+  color: #32d74b;
+  border-radius: 0;
+  outline: 2px solid #32d74b;
+  outline-offset: 0.2rem;
+  transform: translateY(-0.2rem);
+}
+
+.form {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.form label {
+  display: block;
+  width: 100%;
+}
+
+.form input,
+.form select,
+.form textarea {
+  width: 100%;
+  border: 0;
+  border-bottom: 1px solid rgba(244, 243, 239, 0.2);
+  border-radius: 0;
+  outline: none;
+  background: transparent;
+  color: #f4f3ef;
+  font-family: var(--font-display), Impact, sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.2;
+  text-transform: uppercase;
+  transition: border-color 200ms ease;
+}
+
+.form input,
+.form select {
+  height: 3.5rem;
+  padding: 1.125rem 0 1.125rem 1rem;
+}
+
+.form textarea {
+  min-height: 10.125rem;
+  padding: 1.125rem 1rem;
+  resize: vertical;
+}
+
+.form select {
+  appearance: auto;
+}
+
+.form select option {
+  background: #0f0f10;
+  color: #f4f3ef;
+}
+
+.form input::placeholder,
+.form textarea::placeholder {
+  color: #f4f3ef;
+  opacity: 1;
+}
+
+.form input:focus,
+.form select:focus,
+.form textarea:focus {
+  border-bottom-color: #f4f3ef;
+}
+
+.form button {
+  width: 100%;
+  min-height: 3.375rem;
+  border: 0;
+  border-radius: 1rem;
+  background: #f4f3ef;
+  color: #0f0f10;
+  font-family: var(--font-inter), Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition:
+    background 220ms ease,
+    transform 220ms ease;
+}
+
+.form button:hover,
+.form button:focus-visible {
+  background: #32d74b;
+  outline: none;
+  transform: translateY(-0.15rem);
+}
+
+.visuallyHidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (max-width: 1199px) {
+  .contact {
+    scroll-margin-top: 4.375rem;
+    padding-inline: 1.5625rem;
+  }
+
+  .details {
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 809px) {
+  .contact {
+    scroll-margin-top: 3.125rem;
+    padding: 3.125rem 1rem 6.25rem;
+  }
+
+  .details {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+
+  .info {
+    width: 100%;
+    gap: 2rem;
+  }
+
+  .intro {
+    font-size: 1.25rem;
+    line-height: 1.4;
+  }
+
+  .contactDetail h3 {
+    font-size: 1rem;
+  }
+
+  .form {
+    gap: 1.5rem;
+  }
+
+  .form textarea {
+    min-height: 10rem;
+  }
+}

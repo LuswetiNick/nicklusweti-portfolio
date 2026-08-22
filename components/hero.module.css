@@ -1,0 +1,351 @@
+.hero {
+  --page-pad: clamp(1.25rem, 4.5vw, 4.75rem);
+  position: relative;
+  display: grid;
+  min-height: max(44rem, 100svh);
+  overflow: hidden;
+  isolation: isolate;
+  background:
+    radial-gradient(circle at 50% 45%, rgba(244, 243, 239, 0.055), transparent 31%),
+    #0f0f10;
+  color: #f4f3ef;
+}
+
+.glow {
+  position: absolute;
+  z-index: -1;
+  top: 8%;
+  left: 50%;
+  width: min(56rem, 76vw);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(244, 243, 239, 0.065), transparent 68%);
+  transform: translateX(-50%);
+}
+
+.wordmark {
+  position: absolute;
+  z-index: 0;
+  top: 48%;
+  left: 50%;
+  display: grid;
+  width: 94vw;
+  place-items: center;
+  margin: 0;
+  color: #f0efeb;
+  font-family: var(--font-sans), sans-serif;
+  font-size: clamp(4.8rem, 10vw, 11.75rem);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 0.74;
+  text-transform: uppercase;
+  transform: translate(-50%, -50%) scaleX(0.86);
+  transform-origin: center;
+  text-shadow: 0 0 5rem rgba(244, 243, 239, 0.055);
+  animation: titleIn 1.2s cubic-bezier(0.2, 0.78, 0.2, 1) both;
+}
+
+.flipFrame {
+  position: relative;
+  display: grid;
+  width: 100%;
+  min-height: 1.5em;
+  place-items: center;
+}
+
+.flipFrame > * {
+  grid-area: 1 / 1;
+}
+
+.flipWord {
+  width: 100%;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  color: inherit;
+  text-align: center;
+}
+
+.fade {
+  position: absolute;
+  z-index: 3;
+  inset: auto 0 0;
+  height: 40%;
+  background: linear-gradient(
+    to bottom,
+    rgba(15, 15, 16, 0),
+    rgba(15, 15, 16, 0.6) 52%,
+    #0f0f10 88%
+  );
+  pointer-events: none;
+}
+
+.intro {
+  position: absolute;
+  z-index: 5;
+  bottom: clamp(2.15rem, 5.5vh, 4.5rem);
+  left: var(--page-pad);
+  max-width: min(25rem, 35vw);
+  animation: copyIn 0.8s 0.62s ease-out both;
+}
+
+.kicker,
+.year span,
+.scrollCue {
+  font-family: var(--font-geist-mono), monospace;
+  text-transform: uppercase;
+}
+
+.kicker {
+  margin: 0 0 0.8rem;
+  color: #32d74b;
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+}
+
+.statement {
+  margin: 0;
+  color: rgba(244, 243, 239, 0.9);
+  font-size: clamp(1rem, 1.35vw, 1.15rem);
+  font-weight: 400;
+  letter-spacing: -0.025em;
+  line-height: 1.28;
+}
+
+.stack {
+  margin: 0.8rem 0 0;
+  color: rgba(244, 243, 239, 0.42);
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.year {
+  position: absolute;
+  z-index: 5;
+  right: var(--page-pad);
+  bottom: clamp(2.15rem, 5.5vh, 4.5rem);
+  display: grid;
+  justify-items: end;
+  animation: copyIn 0.8s 0.72s ease-out both;
+}
+
+.year span {
+  margin-bottom: 0.45rem;
+  color: rgba(244, 243, 239, 0.42);
+  font-size: 0.62rem;
+  letter-spacing: 0.16em;
+}
+
+.year strong {
+  font-size: clamp(2.8rem, 4.8vw, 4rem);
+  font-weight: 400;
+  letter-spacing: -0.08em;
+  line-height: 0.68;
+}
+
+.workLink {
+  position: absolute;
+  z-index: 6;
+  bottom: clamp(2.1rem, 4.8vh, 3.8rem);
+  left: 50%;
+  display: flex;
+  min-height: 3.25rem;
+  align-items: center;
+  gap: 1.2rem;
+  padding: 0.35rem 0.45rem 0.35rem 1.15rem;
+  border: 1px solid rgba(244, 243, 239, 0.22);
+  border-radius: 999px;
+  background: rgba(15, 15, 16, 0.42);
+  color: #f4f3ef;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  text-decoration: none;
+  text-transform: uppercase;
+  backdrop-filter: blur(0.8rem);
+  transform: translateX(-50%);
+  transition:
+    border-color 220ms ease,
+    background 220ms ease,
+    color 220ms ease;
+  animation: ctaIn 0.8s 0.88s ease-out both;
+}
+
+.workLink svg {
+  box-sizing: content-box;
+  padding: 0.62rem;
+  border-radius: 50%;
+  background: #32d74b;
+  color: #0f0f10;
+  transition: transform 220ms ease;
+}
+
+.workLink:hover,
+.workLink:focus-visible {
+  border-color: rgba(50, 215, 75, 0.7);
+  background: rgba(50, 215, 75, 0.08);
+  outline: 2px solid #32d74b;
+  outline-offset: 0.2rem;
+}
+
+.workLink:hover svg,
+.workLink:focus-visible svg {
+  transform: rotate(-8deg) translate(0.12rem, 0.12rem);
+}
+
+.scrollCue {
+  position: absolute;
+  z-index: 5;
+  top: 50%;
+  right: calc(var(--page-pad) * 0.55);
+  margin: 0;
+  color: rgba(244, 243, 239, 0.28);
+  font-size: 0.62rem;
+  letter-spacing: 0.18em;
+  writing-mode: vertical-rl;
+  transform: translateY(-50%);
+}
+
+.scrollCue::after {
+  display: block;
+  width: 1px;
+  height: 3.5rem;
+  margin: 1rem auto 0;
+  background: linear-gradient(to bottom, rgba(244, 243, 239, 0.42), transparent);
+  content: "";
+}
+
+@keyframes titleIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -44%) scaleX(0.86);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scaleX(0.86);
+  }
+}
+
+@keyframes copyIn {
+  from {
+    opacity: 0;
+    transform: translateY(1rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes ctaIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 1rem);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+@media (max-width: 900px) {
+  .wordmark {
+    top: 45%;
+    font-size: clamp(4.4rem, 12.2vw, 7.2rem);
+    line-height: 0.72;
+  }
+
+  .intro {
+    max-width: 38vw;
+  }
+
+  .scrollCue {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero {
+    min-height: max(45rem, 100svh);
+  }
+
+  .wordmark {
+    top: 41%;
+    width: 100%;
+    padding-inline: 0.75rem;
+    font-size: clamp(3.5rem, 16vw, 6rem);
+    line-height: 0.7;
+  }
+
+  .flipFrame {
+    min-height: 2.3em;
+  }
+
+  .intro {
+    right: var(--page-pad);
+    bottom: 6.35rem;
+    max-width: none;
+  }
+
+  .statement {
+    font-size: 1rem;
+  }
+
+  .stack {
+    margin-top: 0.65rem;
+    font-size: 0.62rem;
+  }
+
+  .year {
+    right: var(--page-pad);
+    bottom: 1.65rem;
+  }
+
+  .year span {
+    display: none;
+  }
+
+  .year strong {
+    font-size: 1.65rem;
+  }
+
+  .workLink {
+    bottom: 1.45rem;
+    left: var(--page-pad);
+    min-height: 3rem;
+    transform: none;
+  }
+
+  .workLink svg {
+    padding: 0.52rem;
+  }
+
+  @keyframes ctaIn {
+    from {
+      opacity: 0;
+      transform: translateY(1rem);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wordmark,
+  .intro,
+  .year,
+  .workLink {
+    animation: none;
+  }
+
+  .workLink,
+  .workLink svg {
+    transition: none;
+  }
+}

@@ -1,0 +1,302 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-08-22T17:10:39Z",
+  "title": "Design System: Nick Lusweti Portfolio",
+  "extensions": {
+    "colorMeta": {
+      "signal-green": {
+        "role": "primary",
+        "displayName": "Signal Green",
+        "canonical": "#32d74b",
+        "tonalRamp": [
+          "#06180a",
+          "#0d3514",
+          "#155320",
+          "#1d722c",
+          "#259139",
+          "#2db246",
+          "#73e483",
+          "#c9f8cf"
+        ]
+      },
+      "midnight-black": {
+        "role": "neutral",
+        "displayName": "Midnight Black",
+        "canonical": "#0f0f10",
+        "tonalRamp": [
+          "#050506",
+          "#0f0f10",
+          "#181819",
+          "#242426",
+          "#3a3a3d",
+          "#5d5d61",
+          "#99999d",
+          "#ededee"
+        ]
+      },
+      "midnight-surface": {
+        "role": "neutral",
+        "displayName": "Midnight Surface",
+        "canonical": "#181819",
+        "tonalRamp": [
+          "#070708",
+          "#101011",
+          "#181819",
+          "#29292b",
+          "#414144",
+          "#66666a",
+          "#a3a3a6",
+          "#f0f0f0"
+        ]
+      },
+      "floating-glass": {
+        "role": "neutral",
+        "displayName": "Floating Glass",
+        "canonical": "rgba(55, 55, 56, 0.86)",
+        "tonalRamp": [
+          "#0b0b0c",
+          "#19191a",
+          "#272728",
+          "#373738",
+          "#505052",
+          "#737376",
+          "#a5a5a8",
+          "#ededee"
+        ]
+      },
+      "gallery-white": {
+        "role": "neutral",
+        "displayName": "Gallery White",
+        "canonical": "#f4f3ef",
+        "tonalRamp": [
+          "#11110f",
+          "#292824",
+          "#4b4a44",
+          "#706f68",
+          "#96948d",
+          "#bcbab3",
+          "#dfddd7",
+          "#f4f3ef"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Monumental Wordmark",
+        "purpose": "Hero identity and positioning phrases, compact header monogram, and oversized closing signature."
+      },
+      "headline": {
+        "displayName": "Editorial Headline",
+        "purpose": "Section statements and case-study titles."
+      },
+      "title": {
+        "displayName": "Condensed Title",
+        "purpose": "Capabilities, projects, contact groups, and editorial subsections."
+      },
+      "body": {
+        "displayName": "Evidence Body",
+        "purpose": "Readable explanations, case-study prose, navigation, and controls."
+      },
+      "label": {
+        "displayName": "Technical Annotation",
+        "purpose": "Status, indexes, categories, technology stacks, and metadata."
+      }
+    },
+    "shadows": [
+      {
+        "name": "floating-navigation",
+        "value": "0 1.25rem 4rem rgba(0, 0, 0, 0.28)",
+        "purpose": "Quiet separation for the fixed glass navigation shell."
+      },
+      {
+        "name": "live-signal",
+        "value": "0 0 0.8rem rgba(50, 215, 75, 0.8)",
+        "purpose": "Ambient energy around the availability indicator."
+      }
+    ],
+    "motion": [
+      {
+        "name": "hero-identity",
+        "value": "1.2s cubic-bezier(0.2, 0.78, 0.2, 1)",
+        "purpose": "First-impression entrance for the monumental hero identity."
+      },
+      {
+        "name": "hero-flip",
+        "value": "3.2s hold · 550ms cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Viewport-aware rotation through the confirmed identity and broad software-development positioning."
+      },
+      {
+        "name": "nav-enter",
+        "value": "700ms 300ms cubic-bezier(0.22, 1, 0.36, 1)",
+        "purpose": "Delayed entrance for the floating navigation."
+      },
+      {
+        "name": "state-fast",
+        "value": "180–220ms ease",
+        "purpose": "Link, button, focus, color, and small transform feedback."
+      },
+      {
+        "name": "media-swell",
+        "value": "600–900ms cubic-bezier(0.2, 0.78, 0.2, 1)",
+        "purpose": "Slow image scaling and cinematic media transitions."
+      },
+      {
+        "name": "scroll-aperture",
+        "value": "720ms cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "One-time IntersectionObserver reveals with a requestAnimationFrame-batched viewport fallback for meaningful below-fold milestones, with sibling delays capped at 180ms."
+      },
+      {
+        "name": "about-word-scrub",
+        "value": "viewport 85%→35% · spring 90/26/0.8",
+        "purpose": "Scroll-linked About copy reveal from 16% to full opacity with a 14px word rise."
+      },
+      {
+        "name": "availability-signal",
+        "value": "2.4s ease-out infinite",
+        "purpose": "A restrained pulse around the live availability dot."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "header-compact",
+        "value": "560px"
+      },
+      {
+        "name": "hero-mobile",
+        "value": "640px"
+      },
+      {
+        "name": "mobile-stack",
+        "value": "809px"
+      },
+      {
+        "name": "hero-stack",
+        "value": "900px"
+      },
+      {
+        "name": "tablet",
+        "value": "1199px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Contact Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The presentational full-width terminal action for the contact form.",
+      "html": "<button class=\"ds-primary-button\" type=\"button\">Send Message</button>",
+      "css": ".ds-primary-button { width: 100%; min-height: 3.375rem; border: 0; border-radius: 1rem; background: #f4f3ef; color: #0f0f10; font-family: Inter, Arial, Helvetica, sans-serif; font-size: 1rem; font-weight: 500; cursor: pointer; transition: background 220ms ease, transform 220ms ease; } .ds-primary-button:hover, .ds-primary-button:focus-visible { background: #32d74b; outline: none; transform: translateY(-0.15rem); } .ds-primary-button:active { transform: translateY(0); } @media (prefers-reduced-motion: reduce) { .ds-primary-button { transition: none; } }"
+    },
+    {
+      "name": "Explore Projects Pill",
+      "kind": "button",
+      "refersTo": "button-pill",
+      "description": "A compact mono CTA with a circular Signal Green action well.",
+      "html": "<a class=\"ds-projects-pill\" href=\"#projects\"><span>Explore projects</span><svg aria-hidden=\"true\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M7 7h10v10\"/><path d=\"M7 17 17 7\"/></svg></a>",
+      "css": ".ds-projects-pill { display: inline-flex; min-height: 3.25rem; align-items: center; gap: 1.2rem; padding: 0.35rem 0.45rem 0.35rem 1.15rem; border: 1px solid rgba(244, 243, 239, 0.22); border-radius: 999px; background: rgba(15, 15, 16, 0.42); color: #f4f3ef; font-family: Geist Mono, monospace; font-size: 0.62rem; letter-spacing: 0.14em; text-decoration: none; text-transform: uppercase; transition: border-color 220ms ease, background 220ms ease, color 220ms ease; } .ds-projects-pill svg { box-sizing: content-box; width: 1rem; height: 1rem; padding: 0.62rem; border-radius: 50%; background: #32d74b; color: #0f0f10; transition: transform 220ms ease; } .ds-projects-pill:hover, .ds-projects-pill:focus-visible { border-color: rgba(50, 215, 75, 0.7); background: rgba(50, 215, 75, 0.08); outline: 2px solid #32d74b; outline-offset: 0.2rem; } .ds-projects-pill:hover svg, .ds-projects-pill:focus-visible svg { transform: rotate(-8deg) translate(0.12rem, 0.12rem); } @media (prefers-reduced-motion: reduce) { .ds-projects-pill, .ds-projects-pill svg { transition: none; } }"
+    },
+    {
+      "name": "Underline Field",
+      "kind": "input",
+      "refersTo": "input-line",
+      "description": "A square, transparent form field separated by one quiet rule.",
+      "html": "<label class=\"ds-field-label\"><span>Full name</span><input class=\"ds-underline-field\" type=\"text\" placeholder=\"Full Name\" /></label>",
+      "css": ".ds-field-label { display: block; width: 100%; } .ds-field-label > span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; } .ds-underline-field { width: 100%; height: 3.5rem; padding: 1.125rem 0 1.125rem 1rem; border: 0; border-bottom: 1px solid rgba(244, 243, 239, 0.2); border-radius: 0; outline: none; background: transparent; color: #f4f3ef; font-family: Bebas Neue, Impact, sans-serif; font-size: 1rem; font-weight: 400; line-height: 1.2; text-transform: uppercase; transition: border-color 200ms ease; } .ds-underline-field::placeholder { color: #f4f3ef; opacity: 1; } .ds-underline-field:hover { border-bottom-color: rgba(244, 243, 239, 0.45); } .ds-underline-field:focus { border-bottom-color: #f4f3ef; } @media (prefers-reduced-motion: reduce) { .ds-underline-field { transition: none; } }"
+    },
+    {
+      "name": "Floating Navigation",
+      "kind": "nav",
+      "refersTo": "nav-floating",
+      "description": "A glass route cluster with a mail action and explicit focus treatment.",
+      "html": "<nav class=\"ds-floating-nav\" aria-label=\"Primary navigation preview\"><a href=\"#about\">About</a><a href=\"#projects\">Work</a><a class=\"ds-nav-optional\" href=\"#capabilities\">Capabilities</a><a class=\"ds-nav-cta\" href=\"mailto:nick@example.com\">Email Nick</a></nav>",
+      "css": ".ds-floating-nav { display: inline-flex; align-items: center; justify-content: center; gap: 0.125rem; padding: 0.5625rem; border: 1px solid rgba(244, 243, 239, 0.24); border-radius: 1.125rem; background: rgba(55, 55, 56, 0.86); box-shadow: 0 1.25rem 4rem rgba(0, 0, 0, 0.28); backdrop-filter: blur(1rem); animation: ds-nav-enter 700ms 300ms cubic-bezier(0.22, 1, 0.36, 1) both; } .ds-floating-nav a { display: inline-flex; min-height: 3.125rem; align-items: center; justify-content: center; padding: 0 1.125rem; border-radius: 0.8125rem; color: #f4f3ef; font-family: Inter, Arial, Helvetica, sans-serif; font-size: 1rem; line-height: 1; text-decoration: none; white-space: nowrap; transition: color 180ms ease, background-color 180ms ease, transform 180ms ease; } .ds-floating-nav a:hover, .ds-floating-nav a:focus-visible { background: rgba(244, 243, 239, 0.07); outline: 2px solid #32d74b; outline-offset: -0.15rem; } .ds-floating-nav .ds-nav-cta { margin-left: 0.125rem; background: rgba(244, 243, 239, 0.15); } .ds-floating-nav .ds-nav-cta:hover, .ds-floating-nav .ds-nav-cta:focus-visible { background: #f4f3ef; color: #0f0f10; outline-offset: 0.15rem; transform: translateY(-0.125rem); } @keyframes ds-nav-enter { from { opacity: 0; transform: translateY(1.25rem); } to { opacity: 1; transform: translateY(0); } } @media (max-width: 809px) { .ds-floating-nav { gap: 0; padding: 0.5rem; } .ds-floating-nav .ds-nav-optional { display: none; } .ds-floating-nav a { padding-inline: 0.75rem; } } @media (prefers-reduced-motion: reduce) { .ds-floating-nav { animation: none; } .ds-floating-nav a { transition: none; } }"
+    },
+    {
+      "name": "Project Evidence Card",
+      "kind": "card",
+      "refersTo": "card-project",
+      "description": "Image-led project proof whose summary, technologies, and case-study path remain visible at rest.",
+      "html": "<article class=\"ds-project-card\"><a href=\"#case-study\"><div class=\"ds-project-media\"><span>Interface preview</span></div><div class=\"ds-project-caption\"><p class=\"ds-project-meta\"><span>01</span><span>Web platform</span></p><h3>Studio IO</h3><p class=\"ds-project-description\">A production-ready software product with a clear technical story.</p><p class=\"ds-project-tech\">Next.js · TypeScript</p><span class=\"ds-project-link\">Read case study <svg aria-hidden=\"true\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\"><path d=\"M7 17 17 7\"/><path d=\"M7 7h10v10\"/></svg></span></div></a></article>",
+      "css": ".ds-project-card { width: min(100%, 48rem); color: #f4f3ef; } .ds-project-card a { display: grid; gap: 1.5rem; color: inherit; text-decoration: none; } .ds-project-media { display: grid; aspect-ratio: 1.86; place-items: center; overflow: hidden; border: 1px solid rgba(244, 243, 239, 0.14); border-radius: 0.9rem; background: #181819; color: rgba(244, 243, 239, 0.42); font-family: Geist Mono, monospace; font-size: 0.62rem; letter-spacing: 0.14em; text-transform: uppercase; transition: transform 600ms cubic-bezier(0.2, 0.78, 0.2, 1); } .ds-project-caption { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: end; gap: 1rem 1.5rem; } .ds-project-meta { display: flex; grid-column: 1 / -1; justify-content: space-between; margin: 0; padding-bottom: 0.5rem; border-bottom: 1px solid rgba(244, 243, 239, 0.16); color: rgba(244, 243, 239, 0.52); font-family: Geist Mono, monospace; font-size: 0.62rem; letter-spacing: 0.14em; text-transform: uppercase; } .ds-project-meta span:first-child { color: #32d74b; } .ds-project-card h3 { grid-column: 1 / -1; margin: 0; font-family: Bebas Neue, Impact, sans-serif; font-size: clamp(2.8rem, 4.8vw, 4rem); font-weight: 400; line-height: 1; text-transform: uppercase; } .ds-project-description { max-width: 42rem; margin: 0; color: rgba(244, 243, 239, 0.68); font-family: Inter, Arial, Helvetica, sans-serif; font-size: clamp(1rem, 1.35vw, 1.15rem); line-height: 1.75; } .ds-project-tech, .ds-project-link { font-family: Geist Mono, monospace; font-size: 0.62rem; letter-spacing: 0.14em; text-transform: uppercase; } .ds-project-tech { grid-column: 1 / -1; margin: 0; color: rgba(244, 243, 239, 0.42); } .ds-project-link { display: inline-flex; min-height: 2.75rem; align-items: center; gap: 0.4rem; white-space: nowrap; } .ds-project-link svg { width: 0.95rem; height: 0.95rem; color: #32d74b; transition: transform 200ms ease; } .ds-project-card a:focus-visible { border-radius: 0.9rem; outline: 2px solid #32d74b; outline-offset: 0.5rem; } .ds-project-card a:hover .ds-project-media { transform: scale(1.025); } .ds-project-card a:hover .ds-project-link svg { transform: translate(0.15rem, -0.15rem); } @media (max-width: 809px) { .ds-project-media { aspect-ratio: 1.7; } .ds-project-caption { grid-template-columns: minmax(0, 1fr); } } @media (prefers-reduced-motion: reduce) { .ds-project-media, .ds-project-link svg { transition: none; } }"
+    },
+    {
+      "name": "Capability Row",
+      "kind": "custom",
+      "refersTo": "capability-row",
+      "description": "A ruled evidence row with persistent explanation and project proof links.",
+      "html": "<article class=\"ds-capability-row\"><p class=\"ds-capability-index\">01</p><div class=\"ds-capability-summary\"><h3>Software Development</h3><p>Reliable product engineering from interface through integration.</p></div><div class=\"ds-capability-proof\"><p>Selected proof</p><a href=\"#project\">View project <svg aria-hidden=\"true\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\"><path d=\"M7 17 17 7\"/><path d=\"M7 7h10v10\"/></svg></a></div></article>",
+      "css": ".ds-capability-row { display: grid; min-height: 12rem; grid-template-columns: 4rem minmax(0, 1.45fr) minmax(15rem, 0.55fr); align-items: start; gap: clamp(1.5rem, 3vw, 2.5rem); padding: 2.5rem 0; border-top: 1px solid rgba(244, 243, 239, 0.2); border-bottom: 1px solid rgba(244, 243, 239, 0.2); background: #0f0f10; color: #f4f3ef; transition: background 260ms ease; } .ds-capability-index, .ds-capability-proof > p, .ds-capability-proof a { margin: 0; font-family: Geist Mono, monospace; font-size: 0.62rem; letter-spacing: 0.14em; line-height: 1.5; text-transform: uppercase; } .ds-capability-index { color: rgba(244, 243, 239, 0.24); } .ds-capability-summary h3 { margin: 0; font-family: Bebas Neue, Impact, sans-serif; font-size: clamp(2.8rem, 4.8vw, 4rem); font-weight: 400; letter-spacing: -0.015em; line-height: 1; text-transform: uppercase; } .ds-capability-summary p { max-width: 48rem; margin: 1rem 0 0; color: rgba(244, 243, 239, 0.62); font-family: Inter, Arial, Helvetica, sans-serif; font-size: clamp(1rem, 1.35vw, 1.15rem); line-height: 1.75; } .ds-capability-proof { display: grid; align-content: start; gap: 0.9rem; } .ds-capability-proof > p { color: rgba(244, 243, 239, 0.38); } .ds-capability-proof a { display: inline-flex; min-height: 2.75rem; align-items: center; gap: 0.35rem; color: #f4f3ef; text-decoration: none; } .ds-capability-proof svg { width: 0.9rem; height: 0.9rem; color: #32d74b; transition: transform 180ms ease; } .ds-capability-row:hover { background: rgba(244, 243, 239, 0.025); } .ds-capability-proof a:focus-visible { outline: 2px solid #32d74b; outline-offset: 0.25rem; } .ds-capability-proof a:hover svg { transform: translate(0.12rem, -0.12rem); } @media (max-width: 809px) { .ds-capability-row { grid-template-columns: minmax(0, 1fr); gap: 1rem; padding-block: 1.5rem; } } @media (prefers-reduced-motion: reduce) { .ds-capability-row, .ds-capability-proof svg { transition: none; } }"
+    },
+    {
+      "name": "Section Heading",
+      "kind": "custom",
+      "refersTo": "section-heading",
+      "description": "A signal-marked label and monumental statement that enter together through one exhibition aperture.",
+      "html": "<div class=\"ds-section-heading\" data-reveal=\"heading\"><p><span aria-hidden=\"true\"></span>My Work</p><h2>Crafted With Purpose</h2></div>",
+      "css": ".ds-section-heading { display: flex; width: 100%; flex-direction: column; align-items: center; gap: 1.5rem; color: #f4f3ef; } .ds-section-heading p { display: flex; align-items: center; gap: 0.48rem; margin: 0; font-family: Geist Mono, monospace; font-size: 0.62rem; font-weight: 400; letter-spacing: 0.1em; line-height: 1; text-transform: uppercase; } .ds-section-heading p span { width: 0.375rem; height: 0.375rem; flex: 0 0 auto; background: #32d74b; } .ds-section-heading h2 { width: 100%; margin: 0; font-family: Bebas Neue, Impact, sans-serif; font-size: clamp(7rem, 12.15vw, 10rem); font-weight: 400; letter-spacing: -0.015em; line-height: 0.99; text-align: center; text-wrap: balance; text-transform: uppercase; } @media (max-width: 1199px) { .ds-section-heading h2 { font-size: clamp(4rem, 12vw, 7rem); } } @media (max-width: 809px) { .ds-section-heading { gap: 1.25rem; } .ds-section-heading h2 { font-size: clamp(2.8rem, 4.8vw, 4rem); line-height: 1; } }"
+    },
+    {
+      "name": "Availability Signal",
+      "kind": "custom",
+      "refersTo": "availability-signal",
+      "description": "A pulsing live-status dot paired with current employment intent.",
+      "html": "<div class=\"ds-availability\"><span class=\"ds-status\" aria-hidden=\"true\"><span></span></span><span>Open to software development roles</span></div>",
+      "css": ".ds-availability { display: flex; align-items: center; gap: 0.72rem; color: rgba(244, 243, 239, 0.74); font-family: Geist Mono, monospace; font-size: 0.62rem; letter-spacing: 0.12em; text-transform: uppercase; } .ds-status { position: relative; display: grid; width: 0.72rem; height: 0.72rem; place-items: center; } .ds-status::before { position: absolute; width: 100%; height: 100%; border: 1px solid rgba(50, 215, 75, 0.72); border-radius: 999px; content: \"\"; animation: ds-signal 2.4s ease-out infinite; } .ds-status span { width: 0.34rem; height: 0.34rem; border-radius: 999px; background: #32d74b; box-shadow: 0 0 0.8rem rgba(50, 215, 75, 0.8); } @keyframes ds-signal { 0% { opacity: 0.9; transform: scale(0.65); } 80%, 100% { opacity: 0; transform: scale(1.7); } } @media (prefers-reduced-motion: reduce) { .ds-status::before { animation: none; } }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Midnight Portfolio",
+    "overview": "The Midnight Portfolio treats the interface as a dark exhibition space where typography, project imagery, and precise technical annotations become the illuminated artifacts. Its near-black field stays continuous from hero to footer, allowing scale, alignment, and a single live signal color to create hierarchy without conventional chrome.\n\nThe system is confident, technical, and kinetic. Oversized type establishes authority, compact mono labels supply evidence, and asymmetric compositions keep the portfolio active. Motion is concentrated in the first-impression identity, live status, navigation entrance, and interaction feedback; project proof remains stable and inspectable at rest.",
+    "keyCharacteristics": [
+      "Near-black continuity with warm off-white type and one electric signal color.",
+      "Monumental typography balanced by compact technical annotations.",
+      "Persistent project and capability evidence that never depends on hover to be understood.",
+      "Asymmetric desktop staging that resolves into direct linear flows on small screens.",
+      "A one-time exhibition-aperture reveal for meaningful scroll milestones, with restrained glass and selective lift on an otherwise flat canvas."
+    ],
+    "rules": [
+      {
+        "name": "The Signal Is Rare Rule",
+        "body": "Signal Green marks status, navigation intent, focus, and moments of proof; it never becomes a large decorative field.",
+        "section": "colors"
+      },
+      {
+        "name": "The Night Never Breaks Rule",
+        "body": "Primary surfaces stay dark so project imagery and Gallery White typography remain the brightest material.",
+        "section": "colors"
+      },
+      {
+        "name": "The Scale Is the Image Rule",
+        "body": "On text-led surfaces, oversized typography is the primary visual artifact; do not replace its authority with extra containers or ornament.",
+        "section": "typography"
+      },
+      {
+        "name": "The Mono Is Metadata Rule",
+        "body": "Geist Mono is reserved for status, indexing, taxonomy, and technical evidence, never sustained body copy.",
+        "section": "typography"
+      },
+      {
+        "name": "The Flat Until Floating Rule",
+        "body": "Surfaces remain flat at rest; shadow appears only when an element is literally floating or when a small status signal needs ambient energy.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do maintain Midnight Black as a continuous canvas and let spacing, rules, and scale establish sections.",
+      "Do reserve Signal Green for status, focus, interactive intent, and precise moments of emphasis.",
+      "Do keep project summaries, technologies, capability descriptions, and proof links visible at rest.",
+      "Do pair monumental display typography with restrained Inter copy and Geist Mono metadata.",
+      "Do collapse asymmetric desktop compositions into direct linear mobile flows instead of merely shrinking them.",
+      "Do concentrate motion in identity, meaningful scroll milestones, status, navigation, and interaction feedback while honoring reduced-motion preferences."
+    ],
+    "donts": [
+      "Don't hide essential project or capability evidence behind hover, scroll animation, or pointer-only interaction.",
+      "Don't introduce generic SaaS dashboards, sidebars, metric tiles, or repetitive card grids into the portfolio identity.",
+      "Don't soften the system with pastel friendliness or dilute its contrast with unrelated accent colors.",
+      "Don't wrap every content block in a rounded container; the uninterrupted night field is part of the identity.",
+      "Don't add continuous decorative project floating or motion without a clear hierarchy, state, or spatial purpose.",
+      "Don't invent badges, logos, testimonials, or performance claims that the project evidence cannot support."
+    ]
+  }
+}

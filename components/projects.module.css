@@ -1,0 +1,259 @@
+.projects {
+  width: 100%;
+  scroll-margin-top: 6.25rem;
+  overflow-x: clip;
+  padding: 6.25rem 3.125rem 0;
+  background: #0f0f10;
+  color: #f4f3ef;
+}
+
+.inner {
+  display: flex;
+  width: 100%;
+  max-width: 90rem;
+  margin: 0 auto;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.gallery {
+  position: relative;
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: clamp(1rem, 2vw, 2rem);
+  row-gap: clamp(2.5rem, 7vw, 6.25rem);
+  padding-top: 1.25rem;
+}
+
+.gallery::before,
+.gallery::after {
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: rgba(244, 243, 239, 0.16);
+  content: "";
+}
+
+.gallery::before {
+  left: 58.333%;
+}
+
+.gallery::after {
+  right: 16.666%;
+}
+
+.card {
+  position: relative;
+  z-index: 1;
+}
+
+.card a {
+  display: grid;
+  gap: 1.5rem;
+  color: inherit;
+  text-decoration: none;
+}
+
+.studio {
+  grid-column: 1 / span 7;
+}
+
+.afrika {
+  grid-column: 9 / -1;
+  margin-top: clamp(4rem, 9vw, 9rem);
+}
+
+.resonix {
+  grid-column: 3 / span 9;
+}
+
+.imageWrap {
+  position: relative;
+  aspect-ratio: 1.86;
+  overflow: hidden;
+  border: 1px solid rgba(244, 243, 239, 0.14);
+  border-radius: 0.9rem;
+  background: #181819;
+}
+
+.imageWrap img {
+  object-fit: contain;
+  transition: transform 600ms cubic-bezier(0.2, 0.78, 0.2, 1);
+}
+
+.caption {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  column-gap: 1.5rem;
+  row-gap: 1rem;
+}
+
+.meta {
+  display: flex;
+  grid-column: 1 / -1;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(244, 243, 239, 0.16);
+}
+
+.meta span,
+.technologies,
+.caseStudyLink {
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.meta span {
+  color: rgba(244, 243, 239, 0.52);
+}
+
+.meta span:first-child {
+  color: #32d74b;
+}
+
+.card h3 {
+  grid-column: 1 / -1;
+  margin: 0;
+  font-family: var(--font-display), Impact, sans-serif;
+  font-size: clamp(2.8rem, 4.8vw, 4rem);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.description {
+  max-width: 42rem;
+  margin: 0;
+  color: rgba(244, 243, 239, 0.68);
+  font-family: var(--font-inter), Arial, Helvetica, sans-serif;
+  font-size: clamp(1rem, 1.35vw, 1.15rem);
+  line-height: 1.75;
+}
+
+.technologies {
+  grid-column: 1 / -1;
+  margin: 0;
+  color: rgba(244, 243, 239, 0.42);
+  line-height: 1.5;
+}
+
+.caseStudyLink {
+  display: inline-flex;
+  min-height: 2.75rem;
+  align-items: center;
+  align-self: start;
+  gap: 0.4rem;
+  color: #f4f3ef;
+  white-space: nowrap;
+}
+
+.caseStudyLink svg {
+  width: 0.95rem;
+  height: 0.95rem;
+  color: #32d74b;
+  transition: transform 200ms ease;
+}
+
+.card a:focus-visible {
+  border-radius: 0.9rem;
+  outline: 2px solid #32d74b;
+  outline-offset: 0.5rem;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .card a:hover .imageWrap img {
+    transform: scale(1.025);
+  }
+
+  .card a:hover .caseStudyLink svg {
+    transform: translate(0.15rem, -0.15rem);
+  }
+}
+
+@media (max-width: 1199px) {
+  .projects {
+    scroll-margin-top: 4.375rem;
+    padding-inline: 1.5625rem;
+  }
+
+  .gallery {
+    grid-template-columns: repeat(8, minmax(0, 1fr));
+  }
+
+  .studio {
+    grid-column: 1 / span 6;
+  }
+
+  .afrika {
+    grid-column: 5 / -1;
+    margin-top: 0;
+  }
+
+  .resonix {
+    grid-column: 2 / span 7;
+  }
+}
+
+@media (max-width: 809px) {
+  .projects {
+    scroll-margin-top: 3.125rem;
+    padding: 3.125rem 1rem 0;
+  }
+
+  .gallery {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 3.75rem;
+    padding-top: 0;
+  }
+
+  .gallery::before,
+  .gallery::after {
+    display: none;
+  }
+
+  .card,
+  .studio,
+  .afrika,
+  .resonix {
+    grid-column: 1;
+    margin-top: 0;
+  }
+
+  .imageWrap {
+    aspect-ratio: 1.7;
+  }
+
+  .card h3 {
+    font-size: 2.8rem;
+  }
+
+  .caption {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .description,
+  .caseStudyLink,
+  .technologies {
+    grid-column: 1;
+  }
+
+  .caseStudyLink {
+    min-height: 2.75rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .imageWrap img,
+  .caseStudyLink svg {
+    transition: none;
+  }
+}

@@ -1,0 +1,19 @@
+## Project overview
+
+Resonix is an AI audio workspace for generating natural speech from text and creating custom voice clones from recordings. It combines a voice library, generation history, organization-scoped workspaces, and usage-based subscriptions in one product.
+
+The platform uses tRPC for its application API, PostgreSQL and Prisma for persistent data, and Cloudflare R2 for generated and uploaded audio. The result is a type-safe path from an interaction in the dashboard to a stored, playable audio asset.
+
+## Challenges
+
+### Multi-tenant data boundaries
+
+Every custom voice and generation belongs to an organization. Authentication and organization-aware procedures enforce those boundaries consistently, while system voices remain available across workspaces.
+
+### The audio lifecycle
+
+Recording, uploading, generating, storing, and replaying audio involves several asynchronous states. Secure R2 object keys and short-lived signed URLs keep assets private without making playback feel fragile.
+
+### Usage-based access
+
+Text-to-speech is metered by character count and voice creation by each new voice. Subscription checks, usage reporting, and the generation workflow must agree before expensive AI work begins, while still giving users clear feedback when a limit is reached.

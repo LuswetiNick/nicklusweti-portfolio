@@ -1,0 +1,19 @@
+## Project overview
+
+Studio IO is a learning management system designed around the complete course journey. Instructors can structure courses into sections and lessons, reorder material, publish rich lesson content, and manage the resources students need in one place.
+
+For learners, the platform combines enrollment, lesson progress, and payments into a focused product experience. The interface keeps dense course data readable while still making the next action clear.
+
+## Challenges
+
+### Flexible course authoring
+
+Course material needed to stay easy to reorganize without losing its underlying order. Drag-and-drop sections, rich Tiptap lesson content, and persisted course state were treated as one connected authoring workflow rather than separate features.
+
+### Media without bottlenecks
+
+Large course assets can quickly make an application feel slow. AWS S3 storage and presigned upload flows keep media handling secure while avoiding unnecessary work in the application server.
+
+### Access and payment state
+
+Enrollment, authentication, course ownership, progress, and Stripe payment state all affect what a user can see or do. The implementation keeps those states explicit so the student and instructor experiences remain predictable.

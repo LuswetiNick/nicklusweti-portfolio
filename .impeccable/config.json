@@ -1,0 +1,78 @@
+{
+  "buildPath": "code",
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "design-system-font-size",
+        "value": "1.5rem",
+        "createdAt": "2026-08-22T14:59:00.719Z",
+        "reason": "Incumbent compact contact-group and footer-link hierarchy retained; these display labels are intentionally smaller than section titles."
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "1.25rem",
+        "createdAt": "2026-08-22T14:59:00.848Z",
+        "reason": "Incumbent responsive contact introduction size retained to preserve the narrow-screen hierarchy."
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "1.85rem",
+        "createdAt": "2026-08-22T14:59:00.933Z",
+        "reason": "The value sizes the GH social glyph to match the adjacent icon, not a prose typography step."
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "12rem",
+        "createdAt": "2026-08-22T14:59:01.090Z",
+        "reason": "The tablet hero wordmark uses an intentional responsive display cap required by the documented hero composition."
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "5.5rem",
+        "createdAt": "2026-08-22T14:59:01.112Z",
+        "reason": "The mobile hero wordmark uses intentional geometry-specific fluid endpoints required to keep the two-line name legible."
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "7.5rem",
+        "createdAt": "2026-08-22T14:59:01.161Z",
+        "reason": "The closing wordmark is an intentional fluid display composition documented as an oversized portfolio identity element."
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "3.25rem",
+        "createdAt": "2026-08-22T14:59:01.284Z",
+        "reason": "The mobile closing wordmark uses an intentional responsive display endpoint to remain within the viewport."
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "1.65rem",
+        "createdAt": "2026-08-22T14:59:01.306Z",
+        "reason": "The compact mobile year is an intentional numeric display size within the hero composition."
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "0.72rem",
+        "createdAt": "2026-08-22T15:14:26.815Z",
+        "reason": "DESIGN.md explicitly defines 0.72rem as the availability-signal size; the NL monogram is the matching compact identity signal."
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "4.8rem",
+        "createdAt": "2026-08-22T17:08:13.324Z"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "4.4rem",
+        "createdAt": "2026-08-22T17:08:14.084Z"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "3.5rem",
+        "createdAt": "2026-08-22T17:08:14.804Z"
+      }
+    ]
+  }
+}

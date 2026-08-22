@@ -1,0 +1,264 @@
+.page {
+  min-height: 100vh;
+  overflow-x: clip;
+  background: #0f0f10;
+  color: #f4f3ef;
+}
+
+.caseStudy {
+  padding: 6.25rem 3.125rem 10rem;
+  background: #0f0f10;
+}
+
+.caseStudyInner {
+  display: grid;
+  width: 100%;
+  max-width: 68.75rem;
+  margin: 0 auto;
+  grid-template-columns: 16.5rem minmax(0, 1fr);
+  align-items: start;
+  gap: clamp(4rem, 9vw, 9rem);
+}
+
+.sidebar {
+  position: sticky;
+  top: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3.5rem;
+}
+
+.stack {
+  border-top: 1px solid rgba(244, 243, 239, 0.16);
+  padding-top: 1.25rem;
+}
+
+.label {
+  margin: 0 0 1.5rem;
+  color: rgba(244, 243, 239, 0.44);
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.stack ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.stack li {
+  padding: 0.6rem 0;
+  border-bottom: 1px solid rgba(244, 243, 239, 0.08);
+  color: rgba(244, 243, 239, 0.78);
+  font-family: var(--font-inter), Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+}
+
+.projectLinks {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.projectLinks a {
+  display: inline-flex;
+  min-height: 2.75rem;
+  align-items: center;
+  gap: 0.55rem;
+  color: #f4f3ef;
+  font-family: var(--font-inter), Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: color 180ms ease;
+}
+
+.projectLinks a svg {
+  width: 1rem;
+  height: 1rem;
+  stroke-width: 1.7;
+}
+
+.projectLinks a svg:last-child {
+  transition: transform 180ms ease;
+}
+
+.projectLinks a:hover,
+.projectLinks a:focus-visible {
+  color: #32d74b;
+  outline: 2px solid #32d74b;
+  outline-offset: 0.2rem;
+}
+
+.projectLinks a:hover svg:last-child,
+.projectLinks a:focus-visible svg:last-child {
+  transform: translate(0.15rem, -0.15rem);
+}
+
+.markdown {
+  border-top: 1px solid rgba(244, 243, 239, 0.16);
+}
+
+.markdown h2 {
+  margin: 5.5rem 0 2rem;
+  font-family: var(--font-display), Impact, sans-serif;
+  font-size: clamp(3.5rem, 7vw, 6rem);
+  font-weight: 400;
+  letter-spacing: -0.025em;
+  line-height: 0.9;
+  text-transform: uppercase;
+}
+
+.markdown h2:first-child {
+  margin-top: 1.5rem;
+}
+
+.markdown h3 {
+  margin: 3rem 0 0.85rem;
+  color: #f4f3ef;
+  font-family: var(--font-display), Impact, sans-serif;
+  font-size: 1.75rem;
+  font-weight: 400;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.markdown p {
+  max-width: 44rem;
+  margin: 0 0 1.4rem;
+  color: rgba(244, 243, 239, 0.57);
+  font-family: var(--font-inter), Arial, Helvetica, sans-serif;
+  font-size: clamp(1rem, 1.35vw, 1.15rem);
+  line-height: 1.75;
+}
+
+.markdown strong {
+  color: #f4f3ef;
+  font-weight: 500;
+}
+
+.nextProject {
+  padding: 0 3.125rem 10rem;
+  background: #0f0f10;
+}
+
+.nextProject a {
+  position: relative;
+  display: grid;
+  width: 100%;
+  max-width: 68.75rem;
+  margin: 0 auto;
+  padding: 3.5rem 5rem 3.5rem 0;
+  border-top: 1px solid rgba(244, 243, 239, 0.16);
+  color: #f4f3ef;
+  text-decoration: none;
+}
+
+.nextProject span {
+  margin-bottom: 1rem;
+  color: #32d74b;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.nextProject strong {
+  font-family: var(--font-display), Impact, sans-serif;
+  font-size: clamp(4rem, 10vw, 8.5rem);
+  font-weight: 400;
+  letter-spacing: -0.03em;
+  line-height: 0.82;
+  text-transform: uppercase;
+}
+
+.nextProject svg {
+  position: absolute;
+  top: 3.5rem;
+  right: 0;
+  width: 2rem;
+  height: 2rem;
+  stroke-width: 1.2;
+  transition: transform 250ms ease;
+}
+
+.nextProject a:hover svg,
+.nextProject a:focus-visible svg {
+  transform: translate(0.35rem, -0.35rem);
+}
+
+.nextProject a:focus-visible {
+  outline: 2px solid #32d74b;
+  outline-offset: 0.5rem;
+}
+
+@media (max-width: 1199px) {
+  .caseStudy,
+  .nextProject {
+    padding-inline: 1.5625rem;
+  }
+}
+
+@media (max-width: 809px) {
+  .caseStudy {
+    padding: 3.75rem 1rem 7.5rem;
+  }
+
+  .caseStudyInner {
+    display: flex;
+    flex-direction: column;
+    gap: 4.5rem;
+  }
+
+  .sidebar {
+    position: static;
+    width: 100%;
+    gap: 2.5rem;
+  }
+
+  .projectLinks {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1rem 1.5rem;
+  }
+
+  .markdown {
+    width: 100%;
+  }
+
+  .markdown h2 {
+    margin-top: 4.5rem;
+    font-size: clamp(3.25rem, 15vw, 5rem);
+  }
+
+  .markdown h3 {
+    margin-top: 2.5rem;
+    font-size: 1.5rem;
+  }
+
+  .markdown p {
+    font-size: 1rem;
+    line-height: 1.68;
+  }
+
+  .nextProject {
+    padding: 0 1rem 7.5rem;
+  }
+
+  .nextProject a {
+    padding: 2.5rem 3.5rem 2.5rem 0;
+  }
+
+  .nextProject svg {
+    top: 2.5rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .projectLinks a svg:last-child,
+  .nextProject svg {
+    transition: none;
+  }
+}
