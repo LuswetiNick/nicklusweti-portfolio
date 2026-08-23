@@ -95,13 +95,8 @@
 .socials svg {
   width: 1.85rem;
   height: 1.85rem;
+  flex: none;
   stroke-width: 1.8;
-}
-
-.socials span {
-  font-family: var(--font-display), Impact, sans-serif;
-  font-size: 1.85rem;
-  line-height: 1;
 }
 
 .socials a:hover,
@@ -117,7 +112,22 @@
   display: flex;
   width: 100%;
   flex-direction: column;
+  gap: 1rem;
+}
+
+.fields {
+  display: flex;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  flex-direction: column;
   gap: 2.5rem;
+  transition: opacity 180ms ease;
+}
+
+.fields:disabled {
+  opacity: 0.58;
 }
 
 .form label {
@@ -176,6 +186,55 @@
   border-bottom-color: #f4f3ef;
 }
 
+.form input:focus-visible,
+.form select:focus-visible,
+.form textarea:focus-visible {
+  outline: 2px solid #32d74b;
+  outline-offset: 0.2rem;
+}
+
+.form input[aria-invalid="true"],
+.form select[aria-invalid="true"],
+.form textarea[aria-invalid="true"] {
+  border-bottom-color: #ff8a80;
+}
+
+.fieldError {
+  display: block;
+  margin: 0.55rem 1rem 0;
+  color: #ff8a80;
+  font-family: var(--font-inter), Arial, Helvetica, sans-serif;
+  font-size: 0.78rem;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+
+.formStatus {
+  min-height: 1.4rem;
+  margin: 0.25rem 0 0;
+  color: rgba(244, 243, 239, 0.62);
+  font-family: var(--font-inter), Arial, Helvetica, sans-serif;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.formStatus[data-status="success"] {
+  color: #32d74b;
+}
+
+.formStatus[data-status="error"] {
+  color: #ff8a80;
+}
+
+.honeypot {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
 .form button {
   width: 100%;
   min-height: 3.375rem;
@@ -195,8 +254,16 @@
 .form button:hover,
 .form button:focus-visible {
   background: #32d74b;
-  outline: none;
+  outline: 2px solid #32d74b;
+  outline-offset: 0.2rem;
   transform: translateY(-0.15rem);
+}
+
+.form button:disabled {
+  background: rgba(244, 243, 239, 0.42);
+  color: rgba(15, 15, 16, 0.72);
+  cursor: wait;
+  transform: none;
 }
 
 .visuallyHidden {
@@ -249,10 +316,29 @@
   }
 
   .form {
+    gap: 1rem;
+  }
+
+  .fields {
     gap: 1.5rem;
   }
 
   .form textarea {
     min-height: 10rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fields,
+  .form button {
+    transition: none;
+  }
+}
+
+@media (forced-colors: active) {
+  .form input[aria-invalid="true"],
+  .form select[aria-invalid="true"],
+  .form textarea[aria-invalid="true"] {
+    outline: 2px solid CanvasText;
   }
 }
