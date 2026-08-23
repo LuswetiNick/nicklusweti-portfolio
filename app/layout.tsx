@@ -1,13 +1,10 @@
 import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
-import {
-  Bebas_Neue,
-  Geist_Mono,
-  Inter,
-  Titillium_Web,
-} from "next/font/google";
+import { Bebas_Neue, Geist_Mono, Inter, Titillium_Web } from "next/font/google";
 import ScrollRevealController from "@/components/scroll-reveal-controller";
 import "./globals.css";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Analytics } from "@vercel/analytics/next";
 
 const titillium = Titillium_Web({
   subsets: ["latin"],
@@ -57,6 +54,8 @@ export default function RootLayout({
       <body className="min-h-full bg-[#0f0f10]">
         <ScrollRevealController />
         {children}
+        <SpeedInsights />
+        <Analytics />
       </body>
     </html>
   );
