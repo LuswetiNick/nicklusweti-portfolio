@@ -39,7 +39,7 @@ const Projects = () => {
       <div className={styles.inner}>
         <SectionHeading
           label="My Work"
-          title="Crafted With Purpose"
+          title="Selected Web Development Projects"
           id="projects-title"
         />
 

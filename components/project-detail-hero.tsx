@@ -20,7 +20,15 @@ const ProjectDetailHero = ({ project }: ProjectDetailHeroProps) => {
             <p className={styles.eyebrow}>
               Case study / {project.index} · {project.category}
             </p>
-            <h1 id="project-title">{project.title}</h1>
+            <h1
+              id="project-title"
+              aria-label={`${project.title} ${project.headingDescriptor}`}
+            >
+              <span>{project.title}</span>
+              <span className={styles.headingDescriptor}>
+                {project.headingDescriptor}
+              </span>
+            </h1>
           </div>
 
           <p className={styles.description}>{project.description}</p>

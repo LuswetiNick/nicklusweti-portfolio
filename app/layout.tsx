@@ -5,6 +5,7 @@ import ScrollRevealController from "@/components/scroll-reveal-controller";
 import "./globals.css";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/next";
+import { siteConfig } from "@/lib/site";
 
 const titillium = Titillium_Web({
   subsets: ["latin"],
@@ -15,11 +16,13 @@ const titillium = Titillium_Web({
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+  weight: "400",
 });
 
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
+  weight: "400",
 });
 
 const bebasNeue = Bebas_Neue({
@@ -29,9 +32,17 @@ const bebasNeue = Bebas_Neue({
 });
 
 export const metadata: Metadata = {
-  title: "Nick Lusweti — Software Developer",
-  description:
-    "Portfolio of Nick Lusweti, a Nairobi-based software developer building end-to-end web products with React, Next.js, APIs, and data systems.",
+  metadataBase: new URL(siteConfig.url),
+  title: {
+    default: siteConfig.title,
+    template: `%s | ${siteConfig.name}`,
+  },
+  description: siteConfig.description,
+  authors: [{ name: siteConfig.name, url: siteConfig.url }],
+  creator: siteConfig.name,
+  verification: process.env.GOOGLE_SITE_VERIFICATION
+    ? { google: process.env.GOOGLE_SITE_VERIFICATION }
+    : undefined,
 };
 
 export default function RootLayout({
@@ -39,7 +50,7 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html
-      lang="en"
+      lang={siteConfig.language}
       className={cn(
         "dark",
         "h-full",

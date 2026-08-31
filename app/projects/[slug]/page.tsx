@@ -12,6 +12,9 @@ import {
   projects,
   type ProjectSlug,
 } from "@/lib/projects";
+import { siteConfig } from "@/lib/site";
+import JsonLd from "@/components/seo/json-ld";
+import { getProjectPageJsonLd } from "@/lib/structured-data";
 import styles from "./project-detail.module.css";
 
 const projectContent = {
@@ -41,8 +44,52 @@ export async function generateMetadata({
   }
 
   return {
-    title: `${project.title} — Nicholas Lusweti`,
-    description: project.description,
+    title: project.seoTitle,
+    description: project.seoDescription,
+    alternates: {
+      canonical: `/projects/${project.slug}`,
+    },
+    openGraph: {
+      title: `${project.seoTitle} | ${siteConfig.name}`,
+      description: project.seoDescription,
+      url: `/projects/${project.slug}`,
+      siteName: siteConfig.name,
+      locale: siteConfig.locale,
+      type: "article",
+      publishedTime: `${project.publishedAt}T00:00:00.000Z`,
+      modifiedTime: `${project.updatedAt}T00:00:00.000Z`,
+      authors: [siteConfig.url],
+      images: [
+        {
+          url: project.image.src,
+          width: project.image.width,
+          height: project.image.height,
+          alt: project.imageAlt,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${project.seoTitle} | ${siteConfig.name}`,
+      description: project.seoDescription,
+      images: [
+        {
+          url: project.image.src,
+          alt: project.imageAlt,
+        },
+      ],
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+        "max-video-preview": -1,
+      },
+    },
   };
 }
 
@@ -59,6 +106,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
   return (
     <>
+      <JsonLd data={getProjectPageJsonLd(project)} />
       <main id="top" className={styles.page}>
         <Header />
         <ProjectDetailHero project={project} />

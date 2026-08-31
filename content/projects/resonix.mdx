@@ -1,19 +1,49 @@
 ## Project overview
 
-Resonix is an AI audio workspace for generating natural speech from text and creating custom voice clones from recordings. It combines a voice library, generation history, organization-scoped workspaces, and usage-based subscriptions in one product.
+Resonix is an AI audio workspace for generating speech from text and creating custom voice clones from recordings. It combines a voice library, generation history, organization-scoped workspaces, subscription controls, and audio playback in one product.
 
-The platform uses tRPC for its application API, PostgreSQL and Prisma for persistent data, and Cloudflare R2 for generated and uploaded audio. The result is a type-safe path from an interaction in the dashboard to a stored, playable audio asset.
+The application uses Next.js and TypeScript for the product surface, tRPC for the application API, PostgreSQL and Prisma for persistent data, Clerk for authentication and organizations, Polar for subscription billing, Cloudflare R2 for audio storage, and a Chatterbox API for speech generation. Sentry provides error tracking across the application.
 
-## Challenges
+## Product goals
 
-### Multi-tenant data boundaries
+Audio generation is not a single request-and-response interaction. A person selects or creates a voice, configures generation parameters, submits text, waits for an external AI operation, and then needs a secure way to replay the result. Resonix brings those stages into one traceable workflow.
 
-Every custom voice and generation belongs to an organization. Authentication and organization-aware procedures enforce those boundaries consistently, while system voices remain available across workspaces.
+The product also needed organization boundaries and usage controls. Custom voices, generations, subscription state, and metered activity must belong to the correct workspace before expensive AI work begins.
 
-### The audio lifecycle
+## Technical approach
 
-Recording, uploading, generating, storing, and replaying audio involves several asynchronous states. Secure R2 object keys and short-lived signed URLs keep assets private without making playback feel fragile.
+### A typed path from interface to stored audio
 
-### Usage-based access
+tRPC connects the React interface to server procedures with shared TypeScript contracts. Prisma models users, organizations, voices, generations, and billing-related state in PostgreSQL. This creates a type-safe path from a dashboard action to the database record and stored audio asset it produces.
 
-Text-to-speech is metered by character count and voice creation by each new voice. Subscription checks, usage reporting, and the generation workflow must agree before expensive AI work begins, while still giving users clear feedback when a limit is reached.
+### Organization-scoped access
+
+Clerk provides authentication and organization membership. Organization-aware procedures require both a user and an active organization before reading or changing custom voices and generations. System voices remain globally available, while user-created assets stay scoped to the organization that created them.
+
+### A controlled audio lifecycle
+
+Voice creation accepts recorded or uploaded samples, while generated and uploaded audio is stored in Cloudflare R2. Object keys include organization and resource identifiers, making ownership visible in the storage layout. Signed URLs expire after one hour, so private audio can be played without exposing permanent public object URLs. System voice audio uses a longer cache window because it is shared rather than organization-specific.
+
+### Usage-based billing before generation
+
+Text-to-speech activity is metered by character count, while voice creation is metered per new voice. Polar subscription checks and usage reporting are part of the generation boundary. An active subscription is required before the application starts the associated AI operation, keeping product access and external processing cost aligned.
+
+## Engineering challenges
+
+### Enforcing multi-tenant data boundaries
+
+Every custom voice and generation belongs to an organization. Central organization-aware procedures reduce the chance that individual interface routes implement different access rules. The same boundary is reflected in database queries and R2 object keys.
+
+### Coordinating asynchronous audio states
+
+Recording, uploading, generating, storing, and replaying audio create several points where work can still be pending or fail. The interface must represent these states clearly while the server keeps durable generation records and storage references consistent.
+
+### Keeping metering and product access synchronized
+
+Subscription status, character usage, and voice-creation usage affect whether an operation may begin. Performing these checks before generation avoids starting costly work that the current account state does not allow.
+
+## What this project demonstrates
+
+Resonix demonstrates type-safe application APIs, multi-tenant authorization, relational data modeling, usage-based billing, secure object storage, and integration with an external AI service. Its public repository documents the architecture, environment boundaries, storage-key strategy, and billing model, while the linked deployment provides the product interface.
+
+For another project involving authentication, payments, relational data, and protected content, read the [Studio IO learning management system case study](/projects/studio-io).

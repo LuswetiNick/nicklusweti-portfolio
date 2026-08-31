@@ -15,6 +15,7 @@ The site pairs a dark, typography-led landing page with MDX-powered project case
 - Accessible contact form with server-side validation and clear submission states
 - React Email template and Resend delivery
 - Honeypot spam protection and basic per-instance rate limiting
+- Route-specific search and social metadata, structured data, sitemap, and robots rules
 
 ## Featured projects
 
@@ -30,7 +31,6 @@ The site pairs a dark, typography-led landing page with MDX-powered project case
 - [React 19](https://react.dev/) and TypeScript
 - [MDX](https://mdxjs.com/) for project narratives
 - CSS Modules for component styling
-- [Motion](https://motion.dev/) for interface animation
 - [Lucide](https://lucide.dev/) for interface icons
 - [Resend](https://resend.com/) and [React Email](https://react.email/) for contact-form delivery
 
@@ -70,6 +70,7 @@ Open [http://localhost:3000](http://localhost:3000).
 | `RESEND_API_KEY` | Yes | Authenticates contact-form requests with Resend. |
 | `RESEND_FROM_EMAIL` | Recommended | Sender identity used for portfolio messages. Use a verified Resend domain in production. |
 | `CONTACT_EMAIL` | Recommended | Inbox that receives contact-form submissions. |
+| `GOOGLE_SITE_VERIFICATION` | Optional | Adds Google Search Console's HTML verification meta tag at build time. |
 
 For local Resend testing, `onboarding@resend.dev` can be used as the sender. Production delivery should use an address on a verified domain.
 
@@ -83,6 +84,7 @@ Never commit `.env.local` or expose the Resend API key to client-side code.
 | `pnpm build` | Creates a production build. |
 | `pnpm start` | Runs the production server after a build. |
 | `pnpm lint` | Runs ESLint across the project. |
+| `pnpm seo:check` | Validates the SEO output of a running production build. |
 
 ## Project structure
 
@@ -105,4 +107,17 @@ The contact form validates all fields on the server, renders both HTML and plain
 
 ## Deployment
 
-The application can be deployed to any platform that supports Next.js server actions. Configure the three environment variables in the hosting provider, verify the sender domain in Resend, and run `pnpm build` as part of the deployment.
+The application can be deployed to any platform that supports Next.js server actions. Configure the Resend environment variables in the hosting provider, add `GOOGLE_SITE_VERIFICATION` when using Search Console's HTML-tag method, verify the sender domain in Resend, and run `pnpm build` as part of the deployment.
+
+Before promoting a release, run the production server and the SEO regression check in separate terminals:
+
+```bash
+pnpm build
+pnpm start
+```
+
+```bash
+pnpm seo:check
+```
+
+After deployment, follow the production verification and Search Console steps in [`docs/seo-deployment-checklist.md`](docs/seo-deployment-checklist.md).

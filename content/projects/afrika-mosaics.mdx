@@ -1,19 +1,49 @@
 ## Project overview
 
-Afrika Mosaics is a content-led portfolio for Kenyan mosaic artist Githaka Karuri. It brings finished work, commissions, writing, and learning material into one visual system without letting the interface compete with the art.
+Afrika Mosaics is a content-led portfolio for Kenyan mosaic artist Githaka Karuri. It brings finished artwork, commissions, writing, and learning material into one visual system without allowing the interface to compete with the work.
 
-Sanity gives the artist a structured editing experience, while the public site turns that content into responsive galleries and editorial pages that remain coherent across screen sizes.
+The public website is built with Next.js and TypeScript, while Sanity provides the editing environment and structured content source. Portable Text supports long-form editorial content, Sanity's image tooling supports responsive artwork presentation, and generated content types keep application queries aligned with the CMS schema.
 
-## Challenges
+## Product goals
 
-### One model for varied content
+The site needed to serve several visitor intentions. Someone might arrive to view a gallery, learn about a commission, read an article, or explore a course. Each path required different information, but all of them needed to feel like part of the same artist portfolio.
 
-Artwork, articles, courses, and commission information each need different fields and presentation rules. The Sanity content model keeps those differences clear while preserving shared information such as imagery, descriptions, and publishing state.
+The other goal was editorial independence. New work should be publishable without changing application code, and the presentation should remain coherent as the content library grows.
 
-### Image-led performance
+## Technical approach
 
-Mosaic work depends on detail and color, so aggressive cropping or slow galleries would undermine the portfolio. The image system balances responsive delivery with deliberate aspect ratios and a visual hierarchy that gives each artwork room to breathe.
+### Structured content for different editorial formats
 
-### Editorial control without visual drift
+Artwork, articles, courses, and commission information have different fields and publishing needs. Sanity schemas preserve those differences while reusing shared concepts such as titles, descriptions, imagery, slugs, and publication state. Schema extraction and generated TypeScript types reduce drift between the studio configuration and the Next.js application.
 
-The site needed to stay consistent even as new work is published. Reusable page patterns and typed content queries constrain the presentation enough to protect the design while leaving the artist in control of the content.
+### Image-led responsive presentation
+
+Mosaic artwork depends on small material details and deliberate color relationships. The gallery system therefore treats image proportions and responsive delivery as content decisions rather than decoration. Artwork is given enough space to remain legible across breakpoints, while the surrounding interface stays visually restrained.
+
+### Portable editorial pages
+
+Articles and learning material use structured Portable Text rather than unbounded HTML. This gives editors flexible content blocks while allowing the application to control typography, spacing, links, and media presentation. The result is editorial freedom inside a stable design language.
+
+### Contact and commission pathways
+
+Commission information and contact flows are part of the same content system as the galleries. Form validation and email tooling provide a direct route from viewing the work to starting a conversation, without forcing every visitor through a generic contact experience.
+
+## Engineering challenges
+
+### Preserving one model across varied content
+
+The CMS must keep each content type specific enough for editors while avoiding several unrelated publishing systems. Shared fields and reusable presentation patterns create consistency, while type-specific schemas preserve the information each format actually needs.
+
+### Protecting image quality and page performance
+
+Aggressive cropping would weaken the artwork, but loading unnecessarily large assets would weaken the browsing experience. Responsive image presentation and deliberate aspect ratios balance those needs without treating every gallery item identically.
+
+### Preventing visual drift as content changes
+
+Editors need freedom to publish, but unrestricted page composition can erode a portfolio's identity over time. Typed queries and reusable page patterns constrain the presentation enough to protect hierarchy while leaving the artist in control of the content itself.
+
+## What this project demonstrates
+
+Afrika Mosaics demonstrates content modeling, typed CMS integration, responsive image presentation, editorial page systems, and contact workflows for a real artist portfolio. The public repository and live deployment linked on this page make the implementation available for review.
+
+For a related example of structured authoring and learning content, read the [Studio IO learning management system case study](/projects/studio-io).

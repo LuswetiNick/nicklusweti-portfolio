@@ -1,12 +1,5 @@
 import { ArrowDownRight } from "lucide-react";
-import { FlipWords } from "@/components/ui/flip-words";
 import styles from "./hero.module.css";
-
-const heroWords = [
-  "Nick Lusweti",
-  "Software Developer",
-  "Products · Data · Cloud",
-];
 
 const Hero = () => {
   return (
@@ -16,15 +9,9 @@ const Hero = () => {
       <h1
         id="hero-title"
         className={styles.wordmark}
-        aria-label="Nick Lusweti — Software Developer"
       >
-        <span className={styles.flipFrame} aria-hidden="true">
-          <FlipWords
-            words={heroWords}
-            duration={3200}
-            className={styles.flipWord}
-          />
-        </span>
+        <span className={styles.identity}>Nick Lusweti</span>
+        <span className={styles.role}>Software Developer</span>
       </h1>
 
       <div className={styles.fade} aria-hidden="true" />

@@ -43,7 +43,7 @@ const Services = () => {
       <div className={styles.inner}>
         <SectionHeading
           label="Technical Capabilities"
-          title="Across the Product Stack"
+          title="Full-Stack Development Capabilities"
           id="capabilities-title"
         />
 

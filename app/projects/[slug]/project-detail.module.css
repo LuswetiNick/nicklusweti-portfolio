@@ -139,6 +139,21 @@
   font-weight: 500;
 }
 
+.markdown a {
+  color: #f4f3ef;
+  text-decoration-color: #32d74b;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.22em;
+  transition: color 180ms ease;
+}
+
+.markdown a:hover,
+.markdown a:focus-visible {
+  color: #32d74b;
+  outline: 2px solid #32d74b;
+  outline-offset: 0.2rem;
+}
+
 .nextProject {
   padding: 0 3.125rem 10rem;
   background: #0f0f10;

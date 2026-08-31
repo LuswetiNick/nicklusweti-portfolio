@@ -19,7 +19,7 @@ const Contact = () => {
       <div className={styles.inner}>
         <SectionHeading
           label="Contact"
-          title="Start a Conversation"
+          title="Contact Nick Lusweti"
           id="contact-title"
         />
 
@@ -53,7 +53,7 @@ const Contact = () => {
               </a>
               <a
                 href="mailto:luswetideveloper@gmail.com"
-                aria-label="Email Nicholas Lusweti"
+                aria-label="Email Nick Lusweti"
               >
                 <Mail aria-hidden="true" />
               </a>

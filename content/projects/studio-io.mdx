@@ -1,19 +1,45 @@
 ## Project overview
 
-Studio IO is a learning management system designed around the complete course journey. Instructors can structure courses into sections and lessons, reorder material, publish rich lesson content, and manage the resources students need in one place.
+Studio IO is a learning management system built around the complete course journey. Instructors can structure courses into sections and lessons, reorder material, publish rich lesson content, and manage supporting resources. Learners move through enrollment, payment, lesson access, and progress tracking inside the same product.
 
-For learners, the platform combines enrollment, lesson progress, and payments into a focused product experience. The interface keeps dense course data readable while still making the next action clear.
+The application uses Next.js and TypeScript for the product surface, Prisma for persistent course and enrollment data, Stripe for payments, AWS S3 for media, and Tiptap for structured lesson authoring. These systems are connected by explicit application states so an action in the interface has a predictable effect on stored data and learner access.
 
-## Challenges
+## Product goals
 
-### Flexible course authoring
+The central design problem was not simply displaying courses. Studio IO needed to support two distinct workflows without turning the product into separate instructor and learner applications.
 
-Course material needed to stay easy to reorganize without losing its underlying order. Drag-and-drop sections, rich Tiptap lesson content, and persisted course state were treated as one connected authoring workflow rather than separate features.
+For instructors, course structure had to stay flexible while remaining safe to edit. For learners, the interface needed to make the next lesson, progress state, and access status clear. Shared data such as course publication, enrollment, ownership, and payment state had to remain consistent across both experiences.
 
-### Media without bottlenecks
+## Technical approach
 
-Large course assets can quickly make an application feel slow. AWS S3 storage and presigned upload flows keep media handling secure while avoiding unnecessary work in the application server.
+### Course authoring as ordered data
 
-### Access and payment state
+Sections and lessons are reorderable through drag-and-drop controls powered by dnd-kit. The visible sequence and the persisted course structure are treated as one workflow, so reorganizing material does not depend on a temporary client-only order. Tiptap provides structured rich-text lesson content while keeping the authoring experience inside the course-management interface.
 
-Enrollment, authentication, course ownership, progress, and Stripe payment state all affect what a user can see or do. The implementation keeps those states explicit so the student and instructor experiences remain predictable.
+### Media uploads outside the application server
+
+Course assets can be much larger than ordinary form data. AWS S3 and presigned upload flows allow the browser to send approved files directly to storage instead of routing every byte through the Next.js application server. The application remains responsible for authorization and object metadata while S3 handles the transfer itself.
+
+### Access, enrollment, and payment boundaries
+
+Authentication, course ownership, enrollment, learner progress, and Stripe payment state each affect what a person can view or change. These checks are kept explicit rather than inferred from the interface. Instructor controls depend on ownership, while protected learner content depends on enrollment and payment state.
+
+## Engineering challenges
+
+### Keeping authoring flexible without losing structure
+
+Drag-and-drop interactions feel temporary, but course order is durable product data. Studio IO coordinates interface feedback with persisted ordering so an instructor can reorganize a course without creating ambiguous section or lesson positions.
+
+### Keeping media work from becoming a bottleneck
+
+Large uploads can tie up application resources and make failures difficult to recover from. Presigned storage operations narrow the server's role and make the upload boundary easier to reason about while keeping private storage credentials away from the browser.
+
+### Making permission state understandable
+
+The same lesson can be editable for an instructor, available to an enrolled learner, or unavailable to a visitor. Modeling those states directly makes the interface more predictable and reduces the chance that presentation logic becomes the only access boundary.
+
+## What this project demonstrates
+
+Studio IO demonstrates end-to-end product work across interactive course authoring, relational data, authentication, payments, cloud storage, and learner-facing progress flows. The public repository and live deployment linked on this page provide inspectable evidence of the implementation.
+
+For another project that coordinates authenticated workflows, persistent data, and paid access, read the [Resonix AI audio platform case study](/projects/resonix).

@@ -154,7 +154,7 @@ const About = () => {
     >
       <h2 id="about-title" className={styles.title}>
         <span aria-hidden="true" />
-        About Me
+        About Nick Lusweti
       </h2>
 
       <div className={styles.statementRow}>
