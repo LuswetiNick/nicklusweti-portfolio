@@ -32,7 +32,7 @@ const Footer = () => {
       </footer>
 
       <div className={styles.copyright} data-reveal="heading">
-        <p>©2026 Nicholas Lusweti. Built with Next.js.</p>
+        <p>©{new Date().getFullYear()}</p>
       </div>
     </>
   );
