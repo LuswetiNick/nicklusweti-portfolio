@@ -1,6 +1,7 @@
 import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
 import { Bebas_Neue, Geist_Mono, Inter, Titillium_Web } from "next/font/google";
+import Script from "next/script";
 import ScrollRevealController from "@/components/scroll-reveal-controller";
 import "./globals.css";
 import { SpeedInsights } from "@vercel/speed-insights/next";
@@ -68,6 +69,18 @@ export default function RootLayout({
         <SpeedInsights />
         <Analytics />
       </body>
+      <Script
+        src="https://www.googletagmanager.com/gtag/js?id=G-ZV9EYEM0KE"
+        strategy="afterInteractive"
+      />
+      <Script id="google-analytics" strategy="afterInteractive">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-ZV9EYEM0KE');
+        `}
+      </Script>
     </html>
   );
 }
